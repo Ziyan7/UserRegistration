@@ -19,10 +19,10 @@ public class UserRegistration {
 
 	// method to validate the emailId
 
-	//public boolean validateEmailId(String emailId) {
-		//String pattern = "^[a-zA-Z0-9-_]+[.]?[a-zA-Z0-9-_]*@[a-zA-Z0-9-_]+[.][a-z]{2,3}[.]?[a-zA-Z-_]*";
-		//return Pattern.matches(pattern, emailId);
-	//}
+	public boolean validateEmailId(String emailId) {
+		String pattern = "^[a-zA-Z0-9-_]+[.]?[a-zA-Z0-9-_]*@[a-zA-Z0-9-_]+[.][a-z]{2,3}[.]?[a-zA-Z-_]*";
+		return Pattern.matches(pattern, emailId);
+	}
 
 	// method to validate the mobile number
 	public boolean validateMobileNo(String mobileNo) {
@@ -30,10 +30,12 @@ public class UserRegistration {
 		return Pattern.matches(pattern, mobileNo);
 	}
 
+	//method to check password
 	public boolean validatePassword(String password) {
-		if(password.length()>7) {
-			return true;
-		}else {
+		if (password.length() > 7) {
+			String pattern=".*[A-Z].*";
+			return Pattern.matches(pattern, password);
+		} else {
 			return false;
 		}
 	}
