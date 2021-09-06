@@ -12,14 +12,18 @@ public class UserRegistrationTest {
 	public void firstNameChecker() {
 		System.out.println("Enter your First Name");
 		Scanner sc = new Scanner(System.in);
-		String firstname = sc.nextLine();
+		String firstName = sc.nextLine();
 
 		System.out.println("Enter your Last Name");
-		String lastname = sc.nextLine();
+		String lastName = sc.nextLine();
+		
+		System.out.println("Enter your emailId");
+		String emailId  = sc.nextLine();
 		sc.close();
 		UserRegistration obj = new UserRegistration();
-		assertTrue(obj.validateFirstName(firstname));
-		assertTrue(obj.validateLastName(lastname));
+		assertTrue(obj.validateFirstName(firstName));
+		assertTrue(obj.validateLastName(lastName));
+		assertTrue(obj.validateEmailId(emailId));
 	}
 
 }
