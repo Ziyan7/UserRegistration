@@ -20,7 +20,7 @@ public class UserRegistration {
 	// method to validate the emailId
 
 	public boolean validateEmailId(String emailId) {
-		String pattern = "^[a-zA-Z0-9-_]+[.]?[a-zA-Z0-9-_]*@[a-zA-Z0-9-_]+[.][a-z]{2,3}[.]?[a-zA-Z-_]*";
+		String pattern ="^[a-zA-Z0-9-_+]+(\\.?[a-zA-Z0-9-_]+)@[a-zA-Z0-9-_]+\\.[a-zA-Z]{2,}(\\.?[a-zA-Z-_]+)";
 		return Pattern.matches(pattern, emailId);
 	}
 
@@ -32,11 +32,8 @@ public class UserRegistration {
 
 	// method to check password
 	public boolean validatePassword(String password) {
-		if (password.length() > 7) {
-			String pattern = "^(?=.*[0-9])(?=.*[@#$%^&+=])(?=.*[A-Z]).{8,}$";
+			String pattern ="^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$";
 			return Pattern.matches(pattern, password);
-		} else {
-			return false;
 		}
-	}
+	
 }
