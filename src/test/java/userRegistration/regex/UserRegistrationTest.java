@@ -54,7 +54,7 @@ public class UserRegistrationTest {
 		UserRegistration obj = new UserRegistration();
 		assertEquals(true, obj.validateFirstName(firstName));
 		assertEquals(true, obj.validateLastName(lastName));
-		assertEquals(true, obj.validateEmailId(emailId));
+		assertEquals(expected, obj.validateEmailId(emailId));
 		assertEquals(true, obj.validateMobileNo(mobileNo));
 		assertEquals(true, obj.validatePassword(password));
 
