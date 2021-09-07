@@ -17,9 +17,9 @@ public class UserRegistrationTest {
 		System.out.println("Enter your Last Name");
 		String lastName = sc.nextLine();
 
-		//System.out.println("Enter your emailId");
-		//String emailId = sc.nextLine();
-		//sc.close();
+		System.out.println("Enter your emailId");
+		String emailId = sc.nextLine();
+		sc.close();
 
 		System.out.println("Enter your mobileNo");
 		String mobileNo = sc.nextLine();
@@ -30,7 +30,7 @@ public class UserRegistrationTest {
 		UserRegistration obj = new UserRegistration();
 		assertTrue(obj.validateFirstName(firstName));
 		assertTrue(obj.validateLastName(lastName));
-		//assertTrue(obj.validateEmailId(emailId));
+		assertTrue(obj.validateEmailId(emailId));
 		assertTrue(obj.validateMobileNo(mobileNo));
 		assertTrue(obj.validatePassword(password));
 	}
