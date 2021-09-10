@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 
+
 @RunWith(Parameterized.class)
 public class UserRegistrationTest {
 	String firstName;
@@ -27,11 +28,11 @@ public class UserRegistrationTest {
 	}
 
 	public UserRegistrationTest(String emailId, Boolean expected) {
-		this.firstName = "Abdul";
-		this.lastName = "Ziyan";
+		this.firstName = "abdul";
+		this.lastName = "ziyan";
 		this.emailId = emailId;
-		this.mobileNo = "91 9900337455";
-		this.password = "abcdH@123";
+		this.mobileNo = "9900337455";
+		this.password = "ab";
 		this.expected = expected;
 	}
 
@@ -52,11 +53,43 @@ public class UserRegistrationTest {
 	@Test
 	public void detailChecker() {
 		UserRegistration obj = new UserRegistration();
-		assertEquals(true, obj.validateFirstName(firstName));
-		assertEquals(true, obj.validateLastName(lastName));
-		assertEquals(expected, obj.validateEmailId(emailId));
-		assertEquals(true, obj.validateMobileNo(mobileNo));
-		assertEquals(true, obj.validatePassword(password));
+		//exception handling for first name capital letter
+		try {
+			assertEquals(true, obj.validateFirstName(firstName));
+		}
+		catch(RegistrationException e) {
+			assertEquals(RegistrationException.ExceptionType.FirstName_NoCaps,e.type);
+		}
+		//exception handling for first name capital letter
+		try {
+			assertEquals(true, obj.validateLastName(lastName));
+		}
+		catch(RegistrationException e) {
+			assertEquals(RegistrationException.ExceptionType.LastName_NoCaps,e.type);
+		}
+		
+		//exception handling of invalid email
+		try {
+		assertEquals(true, obj.validateEmailId(emailId));
+		}
+		catch(RegistrationException e) {
+			assertEquals(RegistrationException.ExceptionType.Invalid_Email,e.type);
+		}
+		//exception handling of invalid mobile number
+		try {
+			assertEquals(true, obj.validateMobileNo(mobileNo));
+		}
+		catch(RegistrationException e) {
+			assertEquals(RegistrationException.ExceptionType.InvalidNumber,e.type);
+		}
+		
+		//exception handling of invalid mobile number
+		try {
+			assertEquals(true, obj.validatePassword(password));
+		}
+		catch(RegistrationException e) {
+			assertEquals(RegistrationException.ExceptionType.Invalid_Password,e.type);
+		}
 
 	}
 
